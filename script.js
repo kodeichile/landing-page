@@ -1,5 +1,16 @@
-// Mobile Menu Toggle
+/**
+ * KODEI - Soluciones Tecnológicas e Inteligencia de Datos
+ * Main JavaScript Handler
+ */
+
+// 1. Funciones Globales (Deben estar fuera para que el HTML las encuentre)
+window.scrollToTop = function() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 document.addEventListener('DOMContentLoaded', function() {
+  
+  // --- Mobile Menu Toggle ---
   const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
   const mobileMenu = document.querySelector('.mobile-menu');
 
@@ -19,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Smooth scroll
+  // --- Smooth Scroll para Anclas ---
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -34,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Header background on scroll
+  // --- Header Control on Scroll ---
   const header = document.querySelector('.header');
   function updateHeader() {
     if (window.scrollY > 50) {
@@ -48,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', updateHeader);
   updateHeader();
 
-  // Animation on scroll
+  // --- Animaciones de Entrada (Intersection Observer) ---
   const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
@@ -63,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(card);
   });
 
-  // Client Filters
+  // --- Filtros de Clientes/Proyectos ---
   const filterBtns = document.querySelectorAll('.filter-btn');
   const clientCards = document.querySelectorAll('.client-card');
 
@@ -89,11 +100,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ==========================================
-  // CONTACT FORM HANDLER - GOOGLE SHEETS & REDIRECT
-  // ==========================================
-  const contactForm = document.getElementById('contactForm');
+  // --- Botón Back to Top (Visibilidad) ---
+  const scrollButton = document.getElementById("scrollToTop");
+  if (scrollButton) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollButton.style.display = "flex";
+      } else {
+        scrollButton.style.display = "none";
+      }
+    });
+  }
 
+  // --- Contact Form Handler (Google Sheets & Redirect) ---
+  const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault(); 
@@ -102,27 +122,23 @@ document.addEventListener('DOMContentLoaded', function() {
       const formData = new FormData(contactForm);
       const url = contactForm.action;
       
-      // Feedback visual
       btnSubmit.disabled = true;
       btnSubmit.innerText = 'Enviando...';
 
-      // Usamos el modo 'no-cors' para evitar problemas de seguridad con Google
       fetch(url, {
         method: 'POST',
         body: formData,
         mode: 'no-cors' 
       })
       .then(() => {
-        // Redirección inmediata tras el envío exitoso
         window.location.href = "graciasforms.html";
       })
       .catch(error => {
         console.error('Error:', error);
-        // Redirigimos igual en caso de error para no bloquear al usuario
         window.location.href = "graciasforms.html";
       });
       
-      // Seguro de vida: Forzamos la redirección tras 4 segundos si algo se queda pegado
+      // Seguro de vida: Redirección forzada tras 4 segundos
       setTimeout(() => {
         window.location.href = "graciasforms.html";
       }, 4000);
