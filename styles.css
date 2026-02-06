@@ -1593,6 +1593,27 @@ ul {
     text-decoration: underline !important;
 }
 /* ========================================
+   Scroll to top button
+   ======================================== */
+.scroll-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  background-color: #ffb400;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 40;
+}
+/* ========================================
    Success Section (Gracias)
    ======================================== */
 
