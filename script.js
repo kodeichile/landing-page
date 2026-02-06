@@ -1,9 +1,9 @@
 /**
  * KODEI - Soluciones Tecnológicas e Inteligencia de Datos
- * Main JavaScript Handler
+ * Main JavaScript Handler - Versión Unificada con GTM Ready
  */
 
-// 1. Funciones Globales (Deben estar fuera para que el HTML las encuentre)
+// 1. Funciones Globales (Back to Top)
 window.scrollToTop = function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        const headerHeight = document.querySelector('.header').offsetHeight;
+        const headerElement = document.querySelector('.header');
+        const headerHeight = headerElement ? headerElement.offsetHeight : 0;
         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
         window.scrollTo({ top: targetPosition, behavior: 'smooth' });
       }
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // --- Header Control on Scroll ---
   const header = document.querySelector('.header');
   function updateHeader() {
+    if (!header) return;
     if (window.scrollY > 50) {
       header.style.backgroundColor = 'rgba(250, 250, 250, 0.95)';
       header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.05)';
@@ -104,15 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const scrollButton = document.getElementById("scrollToTop");
   if (scrollButton) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 300) {
-        scrollButton.style.display = "flex";
-      } else {
-        scrollButton.style.display = "none";
-      }
+      scrollButton.style.display = (window.scrollY > 300) ? "flex" : "none";
     });
   }
 
-  // --- Contact Form Handler (Google Sheets & Redirect) ---
+  // --- Contact Form Handler (Google Sheets, GTM & Redirect) ---
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -131,6 +129,13 @@ document.addEventListener('DOMContentLoaded', function() {
         mode: 'no-cors' 
       })
       .then(() => {
+        // SEÑAL PARA GOOGLE TAG MANAGER
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'form_submission_success',
+          'form_id': 'contact_main'
+        });
+
         window.location.href = "graciasforms.html";
       })
       .catch(error => {
@@ -140,7 +145,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Seguro de vida: Redirección forzada tras 4 segundos
       setTimeout(() => {
-        window.location.href = "graciasforms.html";
+        if(window.location.pathname !== "/graciasforms.html") {
+            window.location.href = "graciasforms.html";
+        }
       }, 4000);
     });
   }
