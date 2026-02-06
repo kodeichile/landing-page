@@ -1596,22 +1596,34 @@ ul {
    Scroll to top button
    ======================================== */
 .scroll-to-top {
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  width: 3rem;
-  height: 3rem;
-  background-color: #00d66b;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  z-index: 40;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 3.5rem; /* Un poco más grande para mejor UX */
+    height: 3.5rem;
+    background-color: var(--primary) !important; /* Usamos tu variable */
+    color: white !important;
+    border: none;
+    border-radius: 50%;
+    box-shadow: var(--shadow-lg); /* Usamos tu sombra definida */
+    cursor: pointer;
+    display: none; /* El JS lo cambia a flex */
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal); /* Usamos tu transición */
+    z-index: 999; /* Aseguramos que esté por encima de todo */
+}
+
+.scroll-to-top:hover {
+    background-color: var(--primary-dark) !important; /* El verde oscuro que definiste */
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.scroll-to-top svg {
+    stroke: white;
+    width: 24px;
+    height: 24px;
 }
 /* ========================================
    Success Section (Gracias)
