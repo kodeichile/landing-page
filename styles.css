@@ -1581,14 +1581,15 @@ ul {
    Success Section (Gracias)
    ======================================== */
 .contact-form .link-terminos {
-    color: #000000 !important;
+    color: #28a745 !important; /* Ahora el verde de Kodei es permanente */
     text-decoration: none !important;
     transition: all 0.3s ease !important;
     display: inline-block;
+    font-weight: 600; /* Le da un poco más de presencia */
 }
 
 .contact-form .link-terminos:hover {
-    color: #28a745 !important; /* El verde de Kodei */
+    color: #1e7e34 !important; /* Un verde un poco más oscuro al pasar el mouse */
     text-decoration: underline !important;
 }
 /* ========================================
