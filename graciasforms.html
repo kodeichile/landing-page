@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Gracias! - KODEI</title>
+  <meta name="description" content="Tu mensaje ha sido enviado exitosamente. Nos pondremos en contacto pronto.">
+  
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <span class="logo-symbol">&lt;/&gt;</span>
+        <span class="logo-text">KODEI</span>
+      </a>
+
+      <nav class="nav">
+        <a href="index.html#servicios" class="nav-link">Servicios</a>
+        <a href="index.html#clientes" class="nav-link">Clientes</a>
+        <a href="index.html#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <button class="btn btn-primary btn-rounded" onclick="window.location.href='index.html'">Volver</button>
+
+      <button class="mobile-menu-btn" aria-label="Menú">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="mobile-menu">
+      <nav class="mobile-nav">
+        <a href="index.html#servicios" class="mobile-nav-link">Servicios</a>
+        <a href="index.html#clientes" class="mobile-nav-link">Clientes</a>
+        <a href="index.html#contacto" class="mobile-nav-link">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Success Section -->
+  <section class="success-section">
+    <div class="success-bg">
+      <div class="success-blob success-blob-1"></div>
+      <div class="success-blob success-blob-2"></div>
+    </div>
+
+    <div class="success-container">
+      <div class="success-icon-large">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <h1 class="success-title">¡Mensaje Enviado con Éxito!</h1>
+      <p class="success-description">
+        Gracias por tu interés en KODEI. Hemos recibido tu mensaje y nos pondremos en contacto contigo pronto.
+      </p>
+
+      <div class="success-details">
+        <p class="success-text">
+          Nuestro equipo revisará tu solicitud y se comunicará contigo en el menor tiempo posible a través del correo electrónico proporcionado.
+        </p>
+      </div>
+
+      <div class="success-actions">
+        <a href="index.html" class="btn btn-primary btn-lg btn-rounded">Volver al Inicio</a>
+        <a href="index.html#servicios" class="btn btn-primary-outline btn-lg btn-rounded">Ver Servicios</a>
+      </div>
+
+      <div class="success-info">
+        <div class="info-card">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+
+        <div class="info-card">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          <div>
+            <h3>Email</h3>
+            <p>contacto@kodei.cl</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div>
+            <h3>Ubicación</h3>
+            <p>Los Ángeles, Chile</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contacto" class="footer">
+    <div class="footer-bg">
+      <div class="footer-blob footer-blob-1"></div>
+      <div class="footer-blob footer-blob-2"></div>
+    </div>
+
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo">
+            <span class="logo-symbol">&lt;/&gt;</span>
+            <span class="logo-text">KODEI</span>
+          </a>
+          <p class="footer-brand-text">
+            Soluciones tecnológicas innovadoras para impulsar tu negocio hacia el futuro.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-title">Servicios</h3>
+          <ul class="footer-list">
+            <li><a href="#servicios">Cámaras Solares</a></li>
+            <li><a href="#servicios">Mantención de Equipos</a></li>
+            <li><a href="#servicios">Desarrollo Web</a></li>
+            <li><a href="#servicios">Desarrollo de Apps</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3 class="footer-title">Contacto</h3>
+          <ul class="footer-list">
+            <li><a href="mailto:contacto@kodei.cl">kodeispa@gmail.cl</a></li>
+            <li>Los Ángeles, Chile</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 KODEI. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
