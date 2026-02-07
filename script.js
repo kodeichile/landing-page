@@ -1,6 +1,6 @@
 /**
  * KODEI - Soluciones Tecnológicas e Inteligencia de Datos
- * Main JavaScript Handler - Versión Unificada con GTM Ready
+ * Main JavaScript Handler - Versión Inteligente con Captura de Servicios
  */
 
 // 1. Funciones Globales (Back to Top)
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // --- Contact Form Handler (Google Sheets, GTM & Redirect) ---
+  // --- Contact Form Handler (Actualizado para Estadísticas) ---
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -120,6 +120,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const formData = new FormData(contactForm);
       const url = contactForm.action;
       
+      // Capturamos el servicio seleccionado para la estadística
+      // Asumimos que tu <select> tiene name="service" o id="service"
+      const selectedService = formData.get('service') || 'No especificado';
+
       btnSubmit.disabled = true;
       btnSubmit.innerText = 'Enviando...';
 
@@ -129,11 +133,12 @@ document.addEventListener('DOMContentLoaded', function() {
         mode: 'no-cors' 
       })
       .then(() => {
-        // SEÑAL PARA GOOGLE TAG MANAGER
+        // SEÑAL PARA GOOGLE TAG MANAGER CON DATOS EXTRA
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           'event': 'form_submission_success',
-          'form_id': 'contact_main'
+          'form_id': 'contact_main',
+          'tipo_servicio': selectedService // <-- Esto es lo que mediremos
         });
 
         window.location.href = "graciasforms.html";
@@ -143,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = "graciasforms.html";
       });
       
-      // Seguro de vida: Redirección forzada tras 4 segundos
+      // Redirección de seguridad
       setTimeout(() => {
         if(window.location.pathname !== "/graciasforms.html") {
             window.location.href = "graciasforms.html";
