@@ -1831,68 +1831,74 @@ ul {
 .product-card:nth-child(4) { animation-delay: 0.4s; }
 
 /* ============================================================
-   RESTAURACIÓN VISUAL KODEI - BENEFICIOS PRO
+   KODEI PROFESSIONAL BENEFITS - FIXED VERSION 2026
    ============================================================ */
 
-.benefits-list {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 2rem 0 !important;
+/* Contenedor General */
+.kodei-benefits-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 2rem 0;
+    max-width: 100%;
 }
 
-.benefit-item {
+/* El Item Individual - Grid de 2 columnas */
+.kodei-benefit-item {
     display: grid !important;
-    /* Columna 1: 40px para el tick | Columna 2: el resto para el texto */
-    grid-template-columns: 40px 1fr !important;
-    align-items: start !important; /* Alinea el tick con la primera línea */
+    grid-template-columns: 45px 1fr !important; /* Espacio exacto para el icono */
+    align-items: start !important;
     gap: 15px !important;
-    margin-bottom: 30px !important;
-    padding: 1rem !important;
-    background: #ffffff; /* Fondo blanco para que no parezca un Word */
-    border-radius: 12px;
-    transition: transform 0.3s ease;
+    padding: 10px 0;
 }
 
-/* RECUPERAMOS EL TICK VERDE CON ESTILO CIRCULAR */
-.benefit-item i {
-    grid-column: 1;
-    color: #00D66B !important; /* Verde KODEI */
-    background: rgba(0, 214, 107, 0.1); /* Círculo suave de fondo */
+/* EL CHECK VERDE (Aquí está de vuelta) */
+.kodei-check-icon {
     width: 32px;
     height: 32px;
+    background-color: rgba(0, 214, 107, 0.12); /* Verde clarito de fondo */
+    border-radius: 50%;
     display: flex !important;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    font-size: 0.9rem !important;
-    margin-top: 4px;
+    flex-shrink: 0;
+    margin-top: 2px; /* Alinea con la primera línea del título */
 }
 
-/* CONTENEDOR DE TEXTO A LA DERECHA */
-.benefit-text-container {
-    grid-column: 2;
+.kodei-check-icon i {
+    color: #00D66B !important; /* Verde KODEI fuerte */
+    font-size: 14px !important;
+}
+
+/* Bloque de Texto a la derecha */
+.kodei-benefit-text {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
 }
 
-.benefit-header {
+/* Título al lado del check */
+.kodei-title {
     font-size: 1.15rem;
     font-weight: 700;
     color: #1a1a1a;
-    margin: 0 !important;
+    line-height: 1.2;
+    margin: 0;
 }
 
-.benefit-description {
-    font-size: 1rem;
+/* Descripción Justificada y Alineada */
+.kodei-desc {
+    font-size: 0.95rem;
     line-height: 1.6;
     color: #555;
     margin: 0 !important;
-    text-align: justify; /* Justificado profesional */
+    text-align: justify; /* Esto hace que el texto se vea pro */
+    padding: 0 !important;
 }
 
-/* Elimina cualquier punto o icono residual del tema anterior */
-.benefits-list li::before {
-    content: none !important;
-    display: none !important;
+/* Limpieza de cualquier lista antigua para evitar el "efecto Word" */
+.benefits-list, .benefits-list li {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
