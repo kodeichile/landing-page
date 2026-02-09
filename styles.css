@@ -1829,3 +1829,51 @@ ul {
 .product-card:nth-child(3) { animation-delay: 0.3s; }
 .service-card:nth-child(4),
 .product-card:nth-child(4) { animation-delay: 0.4s; }
+/* Estilos específicos para la sección de beneficios de KODEI */
+.article-content .benefits-list {
+    list-style: none;
+    padding: 0;
+}
+
+.article-content .benefit-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.5); /* Un toque de fondo para resaltar */
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.article-content .benefit-header {
+    display: flex;
+    align-items: center; /* Centra el icono con el texto */
+    gap: 12px;           /* Espacio exacto entre check y título */
+}
+
+.article-content .benefit-header i,
+.article-content .benefit-header strong {
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.article-content .benefit-header i {
+    flex-shrink: 0;      /* PROHIBIDO que el icono se achique */
+    width: 24px;         /* Espacio fijo para el icono */
+    text-align: center;
+}
+
+.article-content .benefit-description {
+    margin: 0;
+    padding-left: 36px;  /* Alinea la descripción justo debajo del título, dejando el check libre */
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* Ajuste para que en móviles no se vea amontonado */
+@media (max-width: 600px) {
+    .article-content .benefit-description {
+        padding-left: 0; /* En celulares pequeños, usamos todo el ancho para leer mejor */
+        margin-top: 4px;
+    }
+}
