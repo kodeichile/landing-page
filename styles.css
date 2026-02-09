@@ -1830,44 +1830,66 @@ ul {
 .service-card:nth-child(4),
 .product-card:nth-child(4) { animation-delay: 0.4s; }
 
-/* Alineación perfecta para los beneficios de KODEI */
-.article-content .benefit-item {
-    display: flex;
-    flex-direction: column; /* Apila el encabezado y la descripción */
-    gap: 8px;
-    margin-bottom: 24px;
-    padding: 0; /* Eliminamos rellenos para que use todo el ancho */
+/* ============================================================
+   REVISIÓN GLOBAL DE BENEFICIOS - KODEI 2026
+   Alineación perfecta del texto con el Tick Verde
+   ============================================================ */
+
+/* 1. Limpiamos cualquier residuo de la lista vieja para que no choque */
+.article-content ul.benefits-list, 
+.content-section ul {
+    list-style: none !important;
+    padding-left: 0 !important;
 }
 
-.article-content .benefit-header {
-    display: flex;
-    align-items: center; /* Centra el tick con el título */
-    gap: 10px;           /* Espacio entre el tick y el texto */
+.article-content ul.benefits-list li::before,
+.content-section ul li::before {
+    display: none !important; /* Eliminamos el check falso del CSS viejo */
 }
 
-.article-content .benefit-header i {
-    flex-shrink: 0;      /* El tick no se deforma */
-    color: #22c55e;      /* Color verde KODEI */
+/* 2. Estilo para el contenedor del Item (Aplica a todos los artículos) */
+.benefit-item {
+    display: grid !important;
+    grid-template-columns: auto 1fr; /* El tick a la izquierda, el resto a la derecha */
+    column-gap: 12px;
+    row-gap: 4px;
+    margin-bottom: 20px;
+    align-items: start;
+}
+
+/* 3. El Tick Verde */
+.benefit-item i, 
+.benefit-header i {
+    grid-column: 1;
+    grid-row: 1;
+    color: #22c55e !important;
     font-size: 1.2rem;
+    padding-top: 2px; /* Alineación fina con la primera línea de texto */
 }
 
-.article-content .benefit-header strong {
+/* 4. El Título (Negrita) */
+.benefit-item strong, 
+.benefit-header strong {
+    grid-column: 2;
+    grid-row: 1;
     font-size: 1.1rem;
-    font-weight: 700;
+    line-height: 1.2;
 }
 
-.article-content .benefit-description {
-    margin: 0;           /* ELIMINA el margen izquierdo */
-    padding-left: 0;     /* Alineación total a la izquierda con el tick */
+/* 5. La Descripción (El texto largo) */
+.benefit-description {
+    grid-column: 2; /* Esto hace que el texto empiece debajo del título, NO debajo del tick */
+    grid-row: 2;
+    margin: 0 !important;
+    padding: 0 !important;
     font-size: 0.95rem;
-    line-height: 1.6;
-    color: #4b5563;      /* Un gris profesional */
-    text-align: left;
+    color: #4b5563;
+    line-height: 1.5;
 }
 
-/* Ajuste para que en móviles no haya espacios raros */
+/* Ajuste para móviles: si el texto es muy largo, que respete el margen */
 @media (max-width: 600px) {
-    .article-content .benefit-item {
-        margin-bottom: 20px;
+    .benefit-item {
+        column-gap: 10px;
     }
 }
